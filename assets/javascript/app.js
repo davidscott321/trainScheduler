@@ -24,8 +24,12 @@ $(document).ready(function() {
     trainName = $("#name").val().trim();
     trainDestination = $("#destination").val().trim();
     trainTime = $("#time").val().trim();
-    console.log(trainTime);
     trainFrequency = $("#frequency").val().trim();
+
+    $("#name").val('');
+    $("#destination").val('');
+    $("#time").val('');
+    $("#frequency").val('');
 
     calculateValues();
   });
@@ -33,19 +37,11 @@ $(document).ready(function() {
   function calculateValues()
   {
     var convertedTime = moment(trainTime,"HH:mm").subtract(1,"years");
-    console.log("TIME CONVERTED: "+convertedTime);
-    
     var timeDifference = moment().diff(moment(convertedTime),"minutes");
-    console.log("DIFFERENCE IN TIME: "+timeDifference);
-
     var timeRemaining = timeDifference%trainFrequency;
-    console.log(timeRemaining);
 
     minutesAway = trainFrequency-timeRemaining;
-    console.log("MINUTES TILL TRAIN: "+minutesAway);
-
     nextArrival = moment(moment().add(minutesAway,"minutes")).format("HH:mm");
-    console.log("ARRIVAL TIME: "+nextArrival);
     
     writeTrainData();
   }
