@@ -1,6 +1,4 @@
-# trainScheduler
-
-# Firebase Assignment - Train Scheduler (Basic - Recommended)
+# Firebase Assignment - Train Scheduler Application
 
 ## Overview
 
